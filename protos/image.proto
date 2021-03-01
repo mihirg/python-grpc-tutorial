@@ -1,0 +1,16 @@
+syntax = "proto3";
+package in.gore;
+
+
+message ProductImageId {
+    string value = 1;
+}
+
+message ImageDetails {
+    string productId = 1;
+    string imageUrl = 2;
+}
+
+service ImageService {
+    rpc getImageDetails(ProductImageId) returns (ImageDetails);
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package in.gore;
+
+import "google/api/annotations.proto";
+
+message ProductId {
+    string id = 1;
+}
+
+message ProductDetails {
+    string name = 1;
+    string imageUrl = 2;
+}
+
+service ProductInfo {
+    rpc getProductDetails(ProductId) returns (ProductDetails) {
+        option (google.api.http) = {
+            post: "/product/details"
+        };
+    }
+}
